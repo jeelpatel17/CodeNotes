@@ -11,39 +11,46 @@ document.getElementById("form").addEventListener("submit", function (event) {
 });
 
 // SAVE AND RESET BUTTONS
-let saveBtn = document.getElementById("saveBtn"); // where notes will be inputted
-let resetBtn = document.getElementById("resetBtn"); // where notes will be inputted
+let saveBtn = document.getElementById("saveBtn");
+let resetBtn = document.getElementById("resetBtn");
+let ul = document.getElementById("ul");
+let inpBar = document.getElementById("inp");
 
 // SHOWING Existing LIs from LocalStorage
 for (let i = 0; i < localStorage.length; i++) {
   let note = document.createElement("li");
   let content = localStorage.getItem(`note${i}`);
   note.innerText = content;
-  document.querySelector("#ul").appendChild(note);
+  ul.appendChild(note);
+}
+
+if (localStorage.length > 0) {
+  resetBtn.style.display = "inline-block";
 }
 
 /* OVERWRITING PROBLEM STILL UNSOLVED */
 // CREATING LIs
 saveBtn.addEventListener("click", function () {
   let note = document.createElement("li"); // creating a list element
+  let dltBtn = document.createElement("button"); // creating a delete btn
+  dltBtn.innerText = "X";
   note.setAttribute("class", "lis");
-  let content = document.getElementById("inp").value; // grabbing #inp from which the note would be taken
-  document.getElementById("inp").value = "";
+  let content = inpBar.value; // grabbing #inp from which the note would be taken
+  inpBar.value = "";
   note.innerText = content; // copying the note from input to the list of all notes
-  document.querySelector("#ul").appendChild(note);
+  ul.appendChild(note);
   let notes = document.getElementsByClassName("lis");
   for (let i = 0; i < notes.length; i++) {
     localStorage.setItem(`note${i}`, notes[i].innerText);
   }
-  document.getElementById("resetBtn").style.display = "inline-block";
 });
 
 // TO DELETE ALL NOTES ALTOGETHER
 resetBtn.addEventListener("click", function () {
-  let list = document.querySelector("#ul");
-  while (list.hasChildNodes) {
+  let list = document.getElementById("ul");
+  while (list.hasChildNodes()) {
     list.removeChild(list.firstChild);
     localStorage.clear();
-    document.getElementById("resetBtn").style.display = "none";
+    resetBtn.style.display = "none";
   }
 });
