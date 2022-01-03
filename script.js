@@ -367,21 +367,84 @@ let vision = new superhero("The Vision", "predicting the future");
 /* PROTOTYPE */
 // Functions and values can be saved in prototype of an object too!
 
-function heroLifeSpan(lifeSpan) {
-  this.lifespan = lifeSpan;
-}
+// this is also called a CONSTRUCTOR
+// function heroLifeSpan(lifeSpan) {
+//   this.lifespan = lifeSpan;
+// }
 
 // PROTOTYPES basically are used like localStorage.getItem(), and are declared as below
-heroLifeSpan.prototype.getSpan = function () {
-  return this.lifespan;
-};
+// heroLifeSpan.prototype.getSpan = function () {
+//   return this.lifespan;
+// };
 
-heroLifeSpan.prototype.setSpan = function (newLifeSpan) {
-  this.lifespan = newLifeSpan;
-};
+// heroLifeSpan.prototype.setSpan = function (newLifeSpan) {
+//   this.lifespan = newLifeSpan;
+// };
 
 // Now, you can use mySuperhero function to get and set any key value pair
 
-let visionLifeSpan = new heroLifeSpan(35);
-console.log(visionLifeSpan.getSpan()); // this and the below statement will print the same
-console.log(visionLifeSpan.lifespan);
+// let visionLifeSpan = new heroLifeSpan(35);
+// console.log(visionLifeSpan.getSpan()); // this and the below statement will print the same
+// console.log(visionLifeSpan.lifespan);
+
+/* Object.create() - OLD WAY */
+// const proto = {
+//   slogan: function () {
+//     return "zindagi ke saath bhi, zindagi ke baad bhi!";
+//   },
+// };
+
+// NOW, there are two ways of inheriting an object
+
+// 1st WAY
+// const firstKey = Object.create(proto);
+// firstKey.name = "LIC";
+// firstKey.headquarters = "Delhi";
+
+// 2nd WAY
+// const firstKey = Object.create(proto, {
+//   name: { value: "LIC" },
+//   headquarters: { value: "Delhi" },
+// });
+
+// console.log(firstKey);
+// console.log(firstKey.name);
+// console.log(proto.slogan());
+
+/* ES6 CLASSES AND INHERITANCE - THE MODERN WAY */
+
+// class Employee {
+//   constructor(name, exp, role) {
+//     this.name = name;
+//     this.exp = exp;
+//     this.role = role;
+//   }
+//   intro() {
+//     return `Hey Folks! I'm ${this.name} and I've worked as a ${this.role} for around ${this.exp} years now and it's really nice meeting you!`;
+//   }
+// }
+
+// jeel = new Employee("Jeel Patel", 2.6, "Frontend Developer");
+// console.log(jeel);
+// console.log(jeel.intro());
+
+/* INHERITANCE - Which means the new class would have all old keys, but will also have some new keys */
+// Here, the githubUsername is a new key
+// class backEndDev extends Employee {
+//   constructor(name, exp, role, githubName) {
+// this runs only when you're creating an object
+// super(name, exp, role); // SUPER means the constructor from previous class(we can call it parent class)
+// this.githubUsername = githubName;
+// }
+// }
+
+// jeelpt = new backEndDev("Jeel James", 4, "BackEnd Developer", "jeelpatel17");
+// console.log(jeelpt.githubUsername);
+
+/* EXERCISE 4 - LIBRARY CLASS */
+// First, you need to make a function getBookList() which prints all the books available in the library,
+// Constructor must take the bookList as an argument
+// Then, you need to issue a book with issueBook(bookName, author, readerName) function
+// Then, you need to return a book from a reader's account with returnBook(bookName) function
+
+/* PROJECT 2 - COLLEGE LIBRARY WEBSITE */
