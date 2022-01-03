@@ -32,16 +32,25 @@ if (localStorage.length > 0) {
 // CREATING LIs
 saveBtn.addEventListener("click", function () {
   let note = document.createElement("li"); // creating a list element
-  let dltBtn = document.createElement("button"); // creating a delete btn
-  dltBtn.innerText = "X";
+  let content;
+  // let dltBtn = document.createElement("button"); // creating a delete btn
+  // dltBtn.innerText = "X";
   note.setAttribute("class", "lis");
-  let content = inpBar.value; // grabbing #inp from which the note would be taken
-  inpBar.value = "";
-  note.innerText = content; // copying the note from input to the list of all notes
-  ul.appendChild(note);
-  let notes = document.getElementsByClassName("lis");
-  for (let i = 0; i < notes.length; i++) {
-    localStorage.setItem(`note${i}`, notes[i].innerText);
+  if (inpBar.value.length > 0) {
+    content = inpBar.value; // grabbing #inp from which the note would be taken
+    inpBar.value = "";
+    note.innerText = content; // copying the note from input to the list of all notes
+    ul.appendChild(note);
+    // note.appendChild(dltBtn);
+    let notes = document.getElementsByClassName("lis");
+    for (let i = 0; i < notes.length; i++) {
+      localStorage.setItem(`note${i}`, notes[i].innerText);
+    }
+    if (localStorage.length > 0) {
+      resetBtn.style.display = "inline-block";
+    }
+  } else {
+    inpBar.setAttribute("placeholder", "Please enter something here!");
   }
 });
 
@@ -51,6 +60,10 @@ resetBtn.addEventListener("click", function () {
   while (list.hasChildNodes()) {
     list.removeChild(list.firstChild);
     localStorage.clear();
-    resetBtn.style.display = "none";
+    if (localStorage.length > 0) {
+      resetBtn.style.display = "inline-block";
+    } else {
+      resetBtn.style.display = "none";
+    }
   }
 });
