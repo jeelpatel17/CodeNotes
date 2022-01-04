@@ -5,7 +5,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="todo.css" />
@@ -18,20 +18,17 @@
     </div> -->
 
     <!-- TODO APP -->
-    <div id="parent">
-      <form id="form">
-        <input id="inp" type="text" value="" placeholder="Write a new task" />
-        <div id="buttons">
-          <button class="btns" id="saveBtn" type="submit">Save</button>
-          <button class="btns" id="resetBtn" style="display: none">
-            Reset
-          </button>
-        </div>
-      </form>
-    </div>
-    <div id="displayParent">
-      <ul id="ul" class="uls"></ul>
-    </div>
+    <h1 class="headingMain">Minimalist's To-Dos</h1>
+    <form id="form">
+      <input id="inp" type="text" value="" placeholder="Write a new task" />
+      <div id="buttons">
+        <button class="btns" id="saveBtn" type="submit">Save</button>
+        <button class="btns" id="resetBtn" style="display: none">
+          Delete All
+        </button>
+      </div>
+    </form>
+    <ul id="ul" class="uls"></ul>
     <!-- GENERAL SCRIPT -->
     <!-- <script async src="script.js"></script> -->
     <!-- TODO APP SCRIPT -->

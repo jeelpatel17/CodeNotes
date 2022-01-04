@@ -51,7 +51,7 @@ saveBtn.addEventListener("click", function () {
       resetBtn.style.display = "inline";
     }
   } else {
-    inpBar.setAttribute("placeholder", "Please enter something here!");
+    inpBar.setAttribute("placeholder", "Please enter something in here!");
   }
 });
 
