@@ -2,6 +2,13 @@
 <html>
   <head>
     <title>Namaste Document!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="todo.css" />
   </head>
   <body id="primary" class="primal mainBody">
     <!-- EDITABLE DIV EXERCISE -->
@@ -13,9 +20,13 @@
     <!-- TODO APP -->
     <div id="parent">
       <form id="form">
-        <input id="inp" type="text" value="" />
-        <button id="saveBtn" type="submit">Save</button>
-        <button id="resetBtn" style="display: none">Reset</button>
+        <input id="inp" type="text" value="" placeholder="Write a new task" />
+        <div id="buttons">
+          <button class="btns" id="saveBtn" type="submit">Save</button>
+          <button class="btns" id="resetBtn" style="display: none">
+            Reset
+          </button>
+        </div>
       </form>
     </div>
     <div id="displayParent">

@@ -19,13 +19,14 @@ let inpBar = document.getElementById("inp");
 // SHOWING Existing LIs from LocalStorage
 for (let i = 0; i < localStorage.length; i++) {
   let note = document.createElement("li");
+  note.setAttribute("class", "lis");
   let content = localStorage.getItem(`note${i}`);
   note.innerText = content;
   ul.appendChild(note);
 }
 
 if (localStorage.length > 0) {
-  resetBtn.style.display = "inline-block";
+  resetBtn.style.display = "inline";
 }
 
 /* OVERWRITING PROBLEM STILL UNSOLVED */
@@ -47,7 +48,7 @@ saveBtn.addEventListener("click", function () {
       localStorage.setItem(`note${i}`, notes[i].innerText);
     }
     if (localStorage.length > 0) {
-      resetBtn.style.display = "inline-block";
+      resetBtn.style.display = "inline";
     }
   } else {
     inpBar.setAttribute("placeholder", "Please enter something here!");
@@ -61,7 +62,7 @@ resetBtn.addEventListener("click", function () {
     list.removeChild(list.firstChild);
     localStorage.clear();
     if (localStorage.length > 0) {
-      resetBtn.style.display = "inline-block";
+      resetBtn.style.display = "inline";
     } else {
       resetBtn.style.display = "none";
     }
