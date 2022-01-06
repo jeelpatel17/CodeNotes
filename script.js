@@ -451,55 +451,166 @@
 // IN A SEPERATE FOLDER
 
 /* AJAX  - asynchronous javascript */
-let fetchBtn = document.getElementById("fetchBtn");
-fetchBtn.addEventListener("click", buttonClickHandler);
+// let fetchBtn = document.getElementById("fetchBtn");
+// fetchBtn.addEventListener("click", buttonClickHandler);
 
-function buttonClickHandler(e) {
-  e.preventDefault();
-  console.log("clicked!");
-  // instantiate an xhr object, in which we'll store the function through which we can make HTTP requests
-  const xhr = new XMLHttpRequest();
-  // open the XHR object and specify what you want to do; also do enter the URL where you want to fetch data from
-  // GET METHOD; 'true' here is for specifying if we want to perform an asynchronous request or not(to keep running the code flow side by side a process)
-  xhr.open("GET", `/db.json`, true);
-  // POST METHOD
-  // xhr.open("POST", "http://dummy.restapiexample.com/api/v1/create", true);
-  // xhr.getResponseHeader("Content-type", "application/json");
+// function buttonClickHandler() {
+// instantiate an xhr object, in which we'll store the function through which we can make HTTP requests
+// const xhr = new XMLHttpRequest();
+// open the XHR object and specify what you want to do; also do enter the URL where you want to fetch data from
+// GET METHOD; 'true' here is for specifying if we want to perform an asynchronous request or not(to keep running the code flow side by side a process)
+// xhr.open("GET", `/db.json`, true);
+// POST METHOD
+// xhr.open("POST", "http://dummy.restapiexample.com/api/v1/create", true);
+// xhr.getResponseHeader("Content-type", "application/json");
 
-  // what to do on progress; like buffer circles(spinners) and lazy loading; [Note: This is optional, you can print it to use it as a placeholder, but not mandatory]
-  xhr.onprogress = function () {
-    console.log("progressing...");
-  };
-  // ReadyStateChange indicates the stages of processing, the codes that we get are below[Note: This is optional, you can print it to get live updates of the data fetching]:
-  // 0	UNSENT	- Client has been created. open() not called yet.
-  // 1	OPENED  -	open() has been called.
-  // 2	HEADERS_RECEIVED - send() has been called, and headers and status are available.
-  // 3	LOADING -	Downloading; responseText holds partial data.
-  // 4	DONE	  - The operation is complete.
-  xhr.onreadystatechange = function () {
-    console.log(`Ready state is ${xhr.readyState}`);
-  };
-  // when response is ready
-  xhr.onload = function (e) {
-    e.preventDefault();
-    // LET THE USER KNOW IF ANY ERROR IS OCCURED
-    if (this.status === 200) {
-      let data = JSON.parse(this.responseText);
-      console.log(data);
-      document.getElementById(
-        "list"
-      ).innerHTML += `<li><h5 class="card-title">${data.day}</h5>
-      <h6 class="card-subtitle mb-2 text-muted"></h6></li>`;
-    } else {
-      console.error("Something went wrong!");
-    }
-  };
+// when response is ready
+// xhr.onload = function (e) {
+//   // LET THE USER KNOW IF ANY ERROR IS OCCURED
+//   if (this.status === 200) {
+//     let data = JSON.parse(this.responseText);
+//     // console.log(data);
+//     document.getElementById(
+//       "list"
+//     ).innerHTML += `<li><h5 class="card-title">${data.day}</h5>
+//     <h6 class="card-subtitle mb-2 text-muted"></h6></li>`;
+//   } else {
+//     console.error("Something went wrong!");
+//   }
+// };
 
-  // sending the request; every above function is useless without this func below!
-  // FOR POST METHOD
-  // let params = `{ name: "Jesdv", salary: "123", age: "20" }`;
-  // xhr.send(params);
+// sending the request; every above function is useless without this func below!
+// FOR POST METHOD
+// let params = `{ name: "Jesdv", salary: "123", age: "20" }`;
+// xhr.send(params);
 
-  // FOR GET METHOD
-  xhr.send();
-}
+// FOR GET METHOD
+//   xhr.send();
+// }
+
+/* CALLBACK FUNCTIONS */
+// Assuming that this array comes from a remote database
+const students = [{ name: "Jeel", sub: "Science" }];
+
+// function enrollStudent(student, callback) {
+// //   setTimeout(function () {
+//     students.push(student);
+//     // this will hold the function that has been passed as a 'callback' function until this function completes processing itself
+//     callback();
+// //   }, 300);
+// }
+
+// function getStudent() {
+// //   setTimeout(function () {
+//     let str = "";
+//     students.forEach(function (student) {
+//       str += `${student.name}; ${student.sub}\n`;
+//     });
+//     console.log(str);
+// //   }, 300);
+// }
+
+// enrollStudent({ name: "Sharad", sub: "Rust" }, getStudent);
+// getStudent();
+
+/* EXERCISE 5 - Dictionary */
+/* OBJECTIVES */
+/*
+1. Take a word from the user as an input
+2. Search into the .json file that you've created
+3. Scrape the definition of it
+4. Populate the dom with it
+5. Use Bootstrap
+*/
+
+/* PROMISES */
+
+// function func() {
+//   return new Promise(function (resolve, reject) {
+//     // setTimeout(() => {
+//     const error = true;
+//     if (!error) {
+//       resolve();
+//     } else {
+//       reject("Error");
+//     }
+//     // }, 2000)
+//   });
+// }
+
+// func()
+//   .then(function () {
+//       // The code that you wanna run after the function is executed successfully; Basically, this helps when we have a remote database to fetch
+//     console.log("Outside promise: Success!");
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });
+
+/* PROMISES - PRACTICAL EXAMPLE */ // - first uncomment the 'students[]' array in the 'callback functions' notes
+
+// function enrollStudent(student) {
+//   return new Promise(function (resolve, reject) {
+//     students.push(student);
+//     const error = true;
+//     if (!error) {
+//       resolve();
+//     } else {
+//       reject("you can enter a message here!");
+//     }
+//   });
+// }
+
+// function getStudent() {
+//   let str = "";
+//   students.forEach(function (student) {
+//     str += `${student.name}; ${student.sub}\n`;
+//   });
+//   console.log(str);
+// }
+
+// let newStudent = { name: "Dev", sub: "Golang" };
+
+// .THEN FUNC IS LIKE A PLACEHOLDER FOR .RESOLVE FUNC; AND SO IS .REJECT FUNC FOR .CATCH
+// enrollStudent(newStudent)
+//   .then(function () {
+//     getStudent();
+//   })
+// YOU CAN ALSO WRITE LIKE THIS, AS getStudent is itself a function!
+//   .then(getStudent).catch()
+//   .catch(function () {
+//     console.log("error");
+//   });
+// This will now be inside the .then function, because we need to assure that getStudent only executes if the promise is resolved
+// getStudent();
+
+/* PROMISES - QUICK QUIZ */
+
+// function getData() {
+//   return new Promise(function (resolve, reject) {
+//     let xhr = new XMLHttpRequest();
+
+//     xhr.open("GET", "https://jsonplaceholder.typicode.com/todos/1", true);
+
+//     xhr.onload = function (e) {
+//       // LET THE USER KNOW IF ANY ERROR IS OCCURED
+//       if (this.status === 200) {
+//         resolve(this.responseText);
+//       } else {
+//         reject("Somethin' went wrong!");
+//       }
+//     };
+//     // FOR GET METHOD
+//     xhr.send();
+//   });
+// }
+
+// getData()
+//   .then(function (content) {
+//     console.log(`Successfully received content: ${content}`);
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });
+
+/* PROJECT 3 - NEWS WEBSITE */
