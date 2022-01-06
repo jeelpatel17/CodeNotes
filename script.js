@@ -614,3 +614,4 @@ const students = [{ name: "Jeel", sub: "Science" }];
 //   });
 
 /* PROJECT 3 - NEWS WEBSITE */
+// IN A SEPERATE FOLDER
