@@ -615,3 +615,19 @@ const students = [{ name: "Jeel", sub: "Science" }];
 
 /* PROJECT 3 - NEWS WEBSITE */
 // IN A SEPERATE FOLDER
+
+/* ARROW FUNCTIONS */
+// NORMAL FUNC
+// function greet() {
+//   console.log("hey");
+// }
+
+// NORMAL FUNC - PART 2
+// const greet = function () {
+//   console.log("hey");
+// };
+
+// ARROW FUNC
+const greet = () => {
+  console.log("hey");
+};
