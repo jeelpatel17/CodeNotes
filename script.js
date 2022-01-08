@@ -523,6 +523,17 @@ const students = [{ name: "Jeel", sub: "Science" }];
 5. Use Bootstrap
 */
 
+// async function jeel() {
+//       const response = await fetch("/patel.txt");
+//       const data = await response.text();
+//       console.log(data);
+//       return data;
+//     }
+//     // storing what the fnunction returns, to see how a promise can be in a state of pending
+//     let j = jeel();
+//     // what you want to do with the received data returned by jeel() func
+//     j.then((d) => console.log(d));
+
 /* PROMISES */
 
 // function func() {
@@ -628,6 +639,132 @@ const students = [{ name: "Jeel", sub: "Science" }];
 // };
 
 // ARROW FUNC
-const greet = () => {
-  console.log("hey");
-};
+// const greet = () => {
+//   console.log("hey");
+// };
+// YOU CAN ALSO WRITE LIKE THIS(IF YOU HAVE ONLY ONE STATEMENT TO EXECUTE):
+// const greet = () => console.log("hey");
+
+/* FETCH API - MODERN REPLACER OF XHR */
+
+let fetchBtn = document.getElementById("fetchBtn");
+let parent = document.getElementById("list");
+
+// fetchBtn.addEventListener("click", function fetchData() {
+//   let url = "patel.txt";
+//   // IN HERE, THE FIRST .then is executed after fetch() and the second .then is resolved after the current .then is resolved; like a flowchart, step by step
+//   fetch(url)
+//     .then((response) => {
+//       return response.text();
+//     })
+//     .then((data) => {
+//       console.log(data);
+//     });
+// });
+
+// A PRACTICAL EXAMPLE OF GET WITH FETCH()
+// fetchBtn.addEventListener("click", function fetchData() {
+//   let url = "https://api.github.com/users";
+//   fetch(url)
+//     .then((response) => {
+//       // THIS WILL RETURN IN TEXT FORMAT
+//       //   return response.text();
+//       // THIS WILL RETURN IN JSON FORMAT; automatically parsed!
+//       return response.json();
+//     })
+//     .then((data) => {
+//       console.log(data[0].login);
+//     });
+// });
+
+// PRACTICAL EXAMPLE OF POST WITH FETCH()
+// fetchBtn.addEventListener("click", function fetchData() {
+//   let url = "http://dummy.restapiexample.com/api/v1/create";
+//   let data = `{ name: "tedst", salary: "12543", age: "2463" }`;
+//   let params = {
+//     method: "post",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     // you need to stringify it if it is an object
+//     body: data,
+//   };
+//   fetch(url, params)
+//     .then((response) => response.json())
+//     .then((data) => console.log(data));
+// });
+
+/* ASYNC/AWAIT - HOW TO USE PROMISES, ASYNC/AWAIT AND FETCH ALTOGETHER */
+// We don't need to use .then two times like we did earlier
+// ASYNC will return a promise that it'll not execute further until the fetch() is resolved
+// async function jeel() {
+//   const response = await fetch("/patel.txt");
+//   const data = await response.text();
+//   console.log(data);
+//   return data;
+// }
+// // storing what the fnunction returns, to see how a promise can be in a state of pending
+// let j = jeel();
+// // this will print a promise which is pending
+// console.log(j);
+// // what you want to do with the received data returned by jeel() func
+// j.then((d) => console.log(d));
+
+/* TRY & CATCH */
+// pretend that this is coming from a server
+// let a;
+
+// if (a != undefined) {
+//   console.log(typeof a);
+// } else {
+//   // this is normal error throwing method
+//   //   console.error("undefined, please define it first!");
+//   // this is pro method
+//   throw new Error("undefined, please define it first!");
+// }
+
+// This means, try to execute the following code and if get an error, execute the code in the catch() block
+// try {
+//   //   console.log("dsf");
+//   jeelk();
+// } catch (error) {
+//   // WE CAN DISPLAY SOME CUSTOM ERROR WITH THIS METHOD
+//   //   console.log("error");
+//   console.log(error);
+//   //   console.log(error.name);
+//   //   console.log(error.message);
+// } finally {
+//   // finally{} is like the default statement from switch statement
+//   console.log("finally, we'll run this no matter what");
+// }
+
+/* *EUREKA* MOMENT */
+// EUREKA!!!! THIS IS WHAT I WANTED SINCE AGES!
+//   console.log(data[inpVal]);
+
+/* REGEX - REGULAR EXPRESSIONS */
+// IT IS USED IN ADVANCED SEARCH METHODS
+// IT'LL RETURN EITHER NULL OR AN OBJECT
+
+// /writing/ in the middle of slashes is called 'regular expression literal'
+// [NOTE: The content passed down to .exec() function is going to be case sensitive, hence it'll only return the findings which are having the same case as the content inside regex
+/* 1. .exec() FUNCTION IN REGEX */
+
+/* G FLAG - GLOBAL FLAG */
+let reg = /jeel/g;
+// 'g' here is one of the flags, and is called 'Global Flag' which tells the .exec() to find all iterations of the given string/word to find in the regular expression, without 'g', it'll only find and return the first iteration; Note: You'll need to run the .exec() function as many times as you want the total number of iterations!
+
+/* I FLAG - DISABLES CASE SENSITIVITY */
+// let reg = /jeel/i;
+// 'i' tells the function to find the string even with case sensitivity(i.e. if the string is 'jeel', it'll return 'JeEL' too)
+
+// console.log(reg);
+// THIS PRINTS THE CONTENT INSIDE THE REGULAR EXPRESSION
+// console.log(reg.source);
+
+// FUNCTIONS TO MATCH EXPRESSIONS
+let str = "he is jeEl patel guy jEel patel Jeel";
+// console.log(reg.exec(str));
+// console.log(reg.exec(str));
+
+/* 2. TEST() - RETURNS TRUE/FALSE AS AN OUTPUT OF EXEC() */
