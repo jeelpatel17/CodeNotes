@@ -751,20 +751,60 @@ let parent = document.getElementById("list");
 /* 1. .exec() FUNCTION IN REGEX */
 
 /* G FLAG - GLOBAL FLAG */
-let reg = /jeel/g;
+// let reg = /jeel/g;
 // 'g' here is one of the flags, and is called 'Global Flag' which tells the .exec() to find all iterations of the given string/word to find in the regular expression, without 'g', it'll only find and return the first iteration; Note: You'll need to run the .exec() function as many times as you want the total number of iterations!
 
 /* I FLAG - DISABLES CASE SENSITIVITY */
-// let reg = /jeel/i;
+// let reg = /jeel/gi;
 // 'i' tells the function to find the string even with case sensitivity(i.e. if the string is 'jeel', it'll return 'JeEL' too)
+// YOU CAN INSERT MULTIPLE FLAGS TOO!
 
 // console.log(reg);
 // THIS PRINTS THE CONTENT INSIDE THE REGULAR EXPRESSION
 // console.log(reg.source);
 
 // FUNCTIONS TO MATCH EXPRESSIONS
-let str = "he is jeEl patel guy jEel patel Jeel";
-// console.log(reg.exec(str));
-// console.log(reg.exec(str));
+// let str = "he is jeel patel guy jeel patel Jeel";
+// // console.log(reg.exec(str));
+// // console.log(reg.exec(str));
+// // console.log(reg.exec(str).index);
+// // console.log(reg.exec(str).input);
 
 /* 2. TEST() - RETURNS TRUE/FALSE AS AN OUTPUT OF EXEC() */
+// // TEST() HAS .EXEC FUNCTION INSIDE ITSELF, HENCE IT'LL CHECK AND RETURN EITHER TRUE/FALSE
+// // This will only return true if the 'reg' is in the string 'str'
+// console.log(reg.test(str));
+
+/* 3. MATCH() - THE REVERSE SYNTAX OF .TEST() */
+// // IT'LL RETURN AN ARRAY OF RESULTS
+// console.log(str.match(reg));
+
+/* 4. SEARCH() - RETURNS THE INDEX OF FIRST MATCH OR ELSE -1 */
+// // THE SYNTAX OF THIS TOO WILL BE SAME AS .MATCH()
+// console.log(str.search(reg)); // out: 6
+
+/* 5. REPLACE() - RETURNS THE REPLACED STRING WITH ALL THE REPLACEMENTS */
+// // THE SYNTAX OF THIS TOO WILL BE SAME AS .MATCH()
+// console.log(str.replace(reg, "Gary")); // out: he is Gary patel guy Gary patel Jeel
+
+/* QUICK QUIZ - REGEX */
+// let myRegime = /stardust/gi;
+// let findInThis =
+//   "Hello Stardust, I'm so glad that the almighty made you a starDust, and I don't know why am I writing your name in weird cases like this: sTaRdUsT!";
+
+// console.log(myRegime.exec(findInThis));
+// console.log(myRegime.test(findInThis));
+// console.log(findInThis.match(myRegime));
+// console.log(findInThis.search(myRegime));
+// console.log(findInThis.replace(myRegime, "Cutie"));
+
+/* REGEX - METACHARACTER SYMBOLS */
+// ^word = means starts with; i.e. if the strings starts with 'word'(in this case), it'll return true
+// word$ =  ends with; same vice-versa example as above
+// wo.d =  this means, that exactly one character would be on the place of full-stop(.), but we don't know that; it'll only return true if only one character is there on the place of '.'
+// w*d = this means, matches any 0 or more characters, there's no limitation on the number of characters in this like the above one
+// wo?rd? = this means, that the characters 'o' and 'd' are optional, it doesn't matter if they match or not; Note: if the optional character exists or not, doesn't matter, but it can't be replaced by any other character!
+
+// NOTE: if you want to store any of the metacharacters in a string, and not as a metacharacter, you can type \ before the character to escape it
+
+/* REGEX - CHARACTER SETS */
