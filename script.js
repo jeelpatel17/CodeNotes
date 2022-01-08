@@ -799,6 +799,7 @@ let parent = document.getElementById("list");
 // console.log(findInThis.replace(myRegime, "Cutie"));
 
 /* REGEX - METACHARACTER SYMBOLS */
+// Note: These all functions can be executed with .exec() function
 // ^word = means starts with; i.e. if the strings starts with 'word'(in this case), it'll return true
 // word$ =  ends with; same vice-versa example as above
 // wo.d =  this means, that exactly one character would be on the place of full-stop(.), but we don't know that; it'll only return true if only one character is there on the place of '.'
@@ -808,3 +809,29 @@ let parent = document.getElementById("list");
 // NOTE: if you want to store any of the metacharacters in a string, and not as a metacharacter, you can type \ before the character to escape it
 
 /* REGEX - CHARACTER SETS */
+// NOTE: The [] will be applied for only one character, so for every character, you've to specify the range!
+// const regex = /j[a-z]l/; // this means that the middle character can be from the range 'a to z'
+// const regex = /j[pre]l/; // this means, if we want only some specific characters
+// const regex = /j[^pro]l/; // this means, if we want to exclude some specific characters
+// const regex = /j[a-zA-Z]l/; // this means, if we want characters from small a to z and also from capital A to Z
+// const regex = /j[a-zA-Z0-9]l/; // this means, if we want characters from small a to z and also from capital A to Z and also from 0 to 9 digits; BASICALLY, this increases the bandwidth/range/potential inputs
+
+/* QUANTIFIERS - REGEX - CHARACTER SETS */
+
+// let regex = /je{2}l/; // this means that 'e' can occur exactly two times
+// let regex = /je{0,2}l/; // this means that 'e' can occur 0, 1 or 2 times!
+// let regex = /(jeel){0,2}/; // this means that 'jeel' can occur 0, 1 or 2 times!
+// // GROUPINGS
+// let regex = /(jeel){0,2}([1-5]jp){0,2}/; // this means that 'jeel' can occur 0, 1 or 2 times, also, a number from 1 to 5 and a character either 'j' or 'p' can occur 0/1/2 times!
+
+// let regex = /\war/; // there can be only one alphanumeric value at the placeholder of \w
+// let regex = /\w+ar/; // there can be any number of alphanumeric value at the placeholder of \w
+// let regex = /\W+ar/; // match with any non-word character(capital 'W')(a space, symbols), which has 'ar' in the end
+// let regex = /\d+ar/; // match with more than one digit, which has 'ar' in the end
+// let regex = /\D+ar/; // match with more than one non-digit, which has 'ar' in the end
+// let regex = /\s+ar/; // match with more than one white space, which has 'ar' in the end; vice-versa with capital 'S'
+// let regex = /ar\b/; // returns array if there's a boundary(the given string ends)
+// let regex = /w(?=s)/; // there must be a 's' character after 'w' and before 'd'
+// let regex = /w(?!a)/; // there should NOT be a 's' character after 'w' and before 'd'
+// let str = "wswcsdsdv ar";
+// console.log(regex.exec(str));
