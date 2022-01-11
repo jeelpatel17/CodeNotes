@@ -835,3 +835,119 @@ let parent = document.getElementById("list");
 // let regex = /w(?!a)/; // there should NOT be a 's' character after 'w' and before 'd'
 // let str = "wswcsdsdv ar";
 // console.log(regex.exec(str));
+
+/* REGEX FORM VALIDATION */
+
+// fetchBtn.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   let inpUsername = document.getElementById("inpUsername").value;
+//   let inpEmail = document.getElementById("inpEmail").value;
+//   let inpPhone = document.getElementById("inpPhone").value;
+//   let inpPin = document.getElementById("inpPin").value;
+//   regMail = /^\w+@[\w\.]+$/;
+//   //  BREAKING IT DOWN
+//   //   \w+ Means, there can be more than one alphanumeric values
+//   // The middle part will be covered by '@', as it is mandatory for every mail id
+//   // [\w\.]+ Means, there can be more than one alphanumeric values and more than one '.'s
+
+//   // CHECKING COUNTRY CODE SEPERATELY
+//   const regCountryCode = /^\+[0-9]{1,4}$/; // THIS MEANS, THAT THE '+' SYMBOL IS AN EXCEPTION AND IS OPTIONAL; ALSO, THERE CAN BE NUMBERS BEING A TOTAL FROM 5 TO 12 DIGITS; IF THERE'S A NUMBER LESS THAN 5 AND MORE THAN 12, RETURN NULL, AND NO WORRIES IF YOU INCLUDE '+' OR NOT
+
+//   // WITH COUNTRY CODE PREFIX
+//   const regPhone = /^[0-9]{10}$/;
+
+//   // INSTAGRAM USERNAME REGEX
+//   // THIS MEANS THAT THE USERNAME CAN CONTAIN ANY DIGITS FROM 0 TO 9; ALPHABETS FROM a to z/A to Z; CAN INCLUDE . OR _ ANYWHERE; and it can be of length no more than 30 characters
+//   const regName = /([0-9a-zA-Z\.?\_?]){1,30}/;
+//   // \s? means there can be an optional white space here
+//   const regPin = /^[1-9][0-9]{2}\s?[0-9]{3}$/; // FOR PIN CODES IN INDIA
+//   const regPinCa = /^[1-9a-zA-Z][0-9a-zA-Z]{2}\s?[0-9a-zA-Z]{3}$/; // FOR PIN CODES IN CANADA
+//   // You can use .exec() for testing and developing, but in order to get true or false or to run an if else statement according to the input, you need to use .test()
+//   console.log(regMail.exec(inpEmail));
+//   console.log(regName.exec(inpUsername));
+//   // VALIDATE THE COUNTRY CODE
+//   console.log(regPhone.exec(inpPhone));
+//   // THIS WILL NEED ANOTHER INPUT FIELD TO VALIDATE THE COUNTRY CODE
+//   //   console.log(regCountryCode.exec(inpPhone));
+//   console.log(regPin.exec(inpPin));
+//   //   console.log(regPinCa.exec(inpPin)); // CHECK THIS IF THE PIN IS OF CANADA
+//   // TO TAKE ACTION AFTER VALIDATION, LIKEWISE FOR ALL OTHER INPUTS
+//   if (regMail.exec(inpEmail)) {
+//     console.info("Great! Thanks for submitting your email!");
+//   } else {
+//     console.error(
+//       "Invalid email id! Your email should contain a domain name(i.e. gmail.com)"
+//     );
+//   }
+// });
+
+/* ITERATORS */ // NOT WORNING DON'T KNOW WHY
+
+// function carsIterator(carsArr) {
+//   let index = 0;
+//   return {
+//     next: function (index) {
+//       if (index < carsArr.length) {
+//         return {
+//           value: carsArr[index++],
+//           done: false,
+//           indexVal: index++,
+//         };
+//       } else {
+//         return {
+//           done: true,
+//         };
+//       }
+//     },
+//   };
+// }
+
+// let cars = ["mini", "volvo", "chevrolet", "ford"];
+// let res = carsIterator(cars).next();
+
+// console.log(res);
+// console.log(cars);
+// console.log(res);
+
+/* EXERCISE 6 - ALARM CLOCK (WITH SNOOZE FEATURE)*/
+// let timeSet;
+// let currentTime;
+// let snoozeBtn = document.getElementById("snoozeBtn");
+// // TO CHECK IF THE SOUND IS NOT PLAYING, OTHERWISE THE FUNCTION WILL KEEP RUNNING AS MINUTES WILL BE MATCHED(CONTINUOSLY FOR A MINUTE) AND THE SOUND WILL OVERLAY PLAYING
+// let isNotPlaying = 0;
+// fetchBtn.addEventListener("click", function setAlarm(e) {
+//   e.preventDefault();
+//   timeSet = document.getElementById("time").value;
+// });
+
+// function checkTime() {
+//   let nowMin = new Date().getMinutes();
+//   // TO MAKE SURE THAT THE TIME SET AND CURRENT TIME MATCHES, AS THE CURRENT TIME DOESN'T HAVE A '0' BEFORE THE DIGIT IN SINGLE DIGITS
+//   if (nowMin < 10) {
+//     nowMin = `0${nowMin}`;
+//   }
+//   currentTime = `${new Date().getHours()}:${nowMin}`;
+//   // TO TRIGGER WHEN SNOOZE BUTTON IS PRESSED!
+//   let isSnoozePressed = 0;
+//   snoozeBtn.addEventListener("click", () => {
+//     isSnoozePressed = 1;
+//   });
+//   // TO PLAY THE SOUND WHEN THE TIME MATCHES
+//   if (currentTime >= timeSet && isSnoozePressed == 0 && isNotPlaying == 0) {
+//     isNotPlaying = 1;
+//     // console.log(`ALARM! ALARM! ALARM!`);
+//     console.log(
+//       `isSnoozePressed: ${isSnoozePressed}, isNotPlaying: ${isNotPlaying}`
+//     );
+//     snoozeBtn.style.display = "inline";
+//     let alarmSound = new Audio("/alarm_radar.mp3");
+//     alarmSound.play();
+//   }
+// }
+// TO CONTINUOSLY CHECK THE TIME RIGHT NOW
+// setInterval(() => {
+//   // console.log(currentTime, timeSet);
+//   checkTime();
+// }, 1000);
+
+/* GENERATORS */
