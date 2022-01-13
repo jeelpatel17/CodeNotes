@@ -881,17 +881,16 @@ let parent = document.getElementById("list");
 //   }
 // });
 
-/* ITERATORS */ // NOT WORNING DON'T KNOW WHY
+/* ITERATORS */
 
 // function carsIterator(carsArr) {
 //   let index = 0;
 //   return {
-//     next: function (index) {
+//     next: function () {
 //       if (index < carsArr.length) {
 //         return {
 //           value: carsArr[index++],
 //           done: false,
-//           indexVal: index++,
 //         };
 //       } else {
 //         return {
@@ -903,11 +902,13 @@ let parent = document.getElementById("list");
 // }
 
 // let cars = ["mini", "volvo", "chevrolet", "ford"];
-// let res = carsIterator(cars).next();
+// let res = carsIterator(cars);
 
-// console.log(res);
-// console.log(cars);
-// console.log(res);
+// console.log(res.next());
+// console.log(res.next());
+// console.log(res.next());
+// console.log(res.next());
+// console.log(res.next());
 
 /* EXERCISE 6 - ALARM CLOCK (WITH SNOOZE FEATURE)*/
 // let timeSet;
@@ -933,7 +934,7 @@ let parent = document.getElementById("list");
 //     isSnoozePressed = 1;
 //   });
 //   // TO PLAY THE SOUND WHEN THE TIME MATCHES
-//   if (currentTime >= timeSet && isSnoozePressed == 0 && isNotPlaying == 0) {
+//   if (currentTime >= timeSet && !isSnoozePressed && !isNotPlaying) {
 //     isNotPlaying = 1;
 //     // console.log(`ALARM! ALARM! ALARM!`);
 //     console.log(
@@ -950,4 +951,139 @@ let parent = document.getElementById("list");
 //   checkTime();
 // }, 1000);
 
+// SMALL AND CONCISE CODE BY HARRYBHAI
+
+// const alarmSubmit = document.getElementById("alarmSubmit");
+// // THIS IS WHY YOUR FUNCTION RUNS ITSELF WITHOUT CLICKING!! YOU ADD () AFTER THE FUNCTION NAMING IN THE ADDEVENTLISTENER!
+// alarmSubmit.addEventListener("click", setAlarm);
+
+// // This function will run whenever alarm is set from the UI
+// function setAlarm(e) {
+//   e.preventDefault();
+//   const alarm = document.getElementById("alarm");
+//   let alarmDate = new Date(alarm.value);
+//   console.log(`Setting Alarm for ${alarmDate}...`);
+//   let now = new Date();
+//   let timeToAlarm = alarmDate - now;
+//   console.log(timeToAlarm);
+//   if (timeToAlarm >= 0) {
+//     setTimeout(() => {
+//       let audio = new Audio("alarm_radar.mp3");
+//       audio.play();
+//     }, timeToAlarm);
+//   }
+// }
+
 /* GENERATORS */
+// THIS ALLOCATES MEMORY DYNAMICALLY(EXACTLY LIKE MALLOC IN C)
+// function* generator() {
+//   let i = 0;
+//   while (true) {
+//     yield i++;
+//   }
+// }
+
+// // LIKE MALLOC() IN C
+// const val = generator();
+// for (let i = 0; i < 5; i++) {
+//   console.log(val.next());
+// }
+
+/* PROJECT 5 - RANDOM PERSON GENERATOR */
+
+// TO ITERATE AN OBJECT
+// obj = {
+//   Hello: "Jeel",
+//   Name: "Dinanath",
+//   Umar: 70,
+// };
+
+// for (let i = 0; i < Object.keys(obj).length; i++) {
+//   const elem = obj[Object.keys(obj)[i]];
+//   console.log(elem);
+// }
+
+/* FOR OF & FOR IN LOOP */
+// FOR IN
+// IN FOR IN LOOP, WE CAN'T ACCESS THE OBJECT VALUES THROUGH OBJ.KEY IN FOR IN METHOD, WE NEED TO PASS IT AS A STRING IN [] TO ACCESS IT
+// for (let key in obj) {
+//   console.log(obj[key]);
+// }
+// WE CAN RUN THROUGH A STRING AND ARRAYS TOO!
+// let str = "h e y";
+// let arr = [1, 2, 3];
+// for (let i in (str, arr)) {
+//   console.log(str[i]);
+//   console.log(arr[i]);
+// }
+//
+
+// FOR OF
+// THIS CAN ITERATE THROUGH ANYTHING, IF IT'S A STRING, ITERATES CHARACTERS; IF AN ARRAY, ITERATES ELEMENTS
+// let arr = [1, 2, 3];
+// for (let i of arr) {
+//   console.log(i);
+// }
+
+/* MAPS */
+// BASICALLY, used to store different types of datatypes and objects in one parent
+// const myMap = new Map();
+// let val1 = "myStr",
+//   val2 = {},
+//   val3 = function () {};
+
+// SETTING CHILD ELEMENTS TO SOME VALUES
+// myMap.set(val1, "My value 1");
+// myMap.set(val2, { name: "jeel" });
+// myMap.set(val3, 'console.log("My value 3");');
+
+// GENERAL USES
+// console.log(myMap);
+// console.log(myMap.get(val3));
+// console.log(myMap.size);
+
+// TO PRINT ALL KEYS AND VALUES
+// for (let [key, value] of myMap) {
+//   console.log(key, value);
+// }
+
+// USING FOREACH FOR ITERATING THROUGH THE MAP
+// myMap.forEach((values, keys) => {
+//   console.log(keys, values);
+// });
+
+// TO CONVERT MAP INTO ARRAY; add .keys()/.values() to seperate keys and values in different arrays
+// console.log(Array.from(myMap));
+
+/* SETS */
+
+/* RANDOM DAD JOKE GENERATOR API */
+// async function generateJoke() {
+//   const jokeRes = await fetch("https://icanhazdadjoke.com/", {
+//     headers: {
+//       Accept: "application/json",
+//     },
+//   });
+//   const joke = await jokeRes.json();
+//   console.log(joke.joke);
+// }
+// generateJoke();
+
+/* MY MINI PROJECT - YODA TRANSLATOR */
+// const sentence = "You can enter a sentence in here!";
+// const ogArray = sentence.replace(" ", "%20");
+
+// async function checkApi() {
+//   const jokeRes = await fetch(
+//     `https://api.funtranslations.com/translate/yoda.json?text=${ogArray}`,
+//     {
+//       headers: {
+//         Accept: "application/json",
+//       },
+//     }
+//   );
+//   const joke = await jokeRes.json();
+//   console.log(`Original: ${joke.contents.text}`);
+//   console.log(`Translated: ${joke.contents.translated}`);
+// }
+// checkApi();

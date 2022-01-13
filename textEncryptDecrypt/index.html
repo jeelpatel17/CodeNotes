@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Text Encryptor/Decryptor</title>
+  </head>
+  <body>
+    <div id="main">
+      <h2 class="formElem">Text Encryptor/Decryptor!</h2>
+      <textarea
+        class="formElem"
+        type="text"
+        id="contentInp"
+        value=""
+        placeholder="Enter text to encrypt/decrypt it!"
+      ></textarea>
+      <div class="formElem">
+        <span class="radios"
+          ><input type="radio" id="encryptBtn" name="crypto" value="e" />
+          <label for="encryptBtn">Encrypt</label></span
+        >
+        <span class="radios"
+          ><input type="radio" id="decryptBtn" name="crypto" value="d" />
+          <label for="decryptBtn">Decrypt</label></span
+        ><br />
+      </div>
+      <button class="formElem" type="submit" id="submit">(En/De)crypt</button>
+    </div>
+    <div id="displayParent" style="display: none">
+      <p id="display"></p>
+      <button id="tapToCpy">Tap to copy</button>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>
+
+<!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error necessitatibus consequuntur numquam fugiat obcaecati corporis eos, magnam quas distinctio nesciunt libero, non minus minima ullam, aliquid aut illo ipsum. Eligendi quidem quo deleniti voluptatum recusandae, at quas sapiente eos beatae quia? Consectetur dicta, inventore deleniti amet repellendus officia velit eum sunt! Quis dolores repellendus odio sit amet consequuntur voluptate labore, deleniti non corporis accusantium, hic laborum recusandae excepturi ut, ea quae sapiente? Amet nihil velit quas quo aperiam. Nobis sequi consectetur quia, explicabo natus aliquid eos cum necessitatibus animi aut saepe magni nulla excepturi quasi omnis, quas ex ea corporis! -->
