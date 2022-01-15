@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap"
-      rel="stylesheet"
-    /> -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -14,17 +8,43 @@
       crossorigin="anonymous"
     />
     <style>
-      form > div {
+      /* form > div {
         margin: 5px 0;
+      } */
+      /* FOR DRAGGABLE KHOKHA */
+      /* .whiteBx {
+        display: inline-block;
+        height: 120px;
+        width: 120px;
+        border: 2px solid lightgreen;
+        border-radius: 4px;
+        background: lightgray;
       }
+      .whiteBx > img {
+        position: relative;
+        cursor: pointer;
+        margin: 5px;
+        border: 2px solid white;
+      }
+      .holdOn{
+        border: 2px dashed red;
+        box-shadow: 10px 10px 5px -1px rgba(0,0,0,0.59);
+      }
+      .toBe{
+        background-color: #f00;
+      }
+      .hide{
+        display: none;
+      } */
     </style>
   </head>
   <body class="container" id="primary">
-    <!-- <h1>AJAX</h1>-->
-    <!-- FOR POST METHOD -->
-    <!-- <button type="button" id="postBtn" class="btn btn-primary">Post</button> -->
-    <!-- FOR GET METHOD -->
-    <!-- <input type="text" value="" id="inpTxt" />
+    <misc>
+      <!-- <h1>AJAX</h1>-->
+      <!-- FOR POST METHOD -->
+      <!-- <button type="button" id="postBtn" class="btn btn-primary">Post</button> -->
+      <!-- FOR GET METHOD -->
+      <!-- <input type="text" value="" id="inpTxt" />
     <button type="button" id="fetchBtn" class="btn btn-secondary">
       Search
     </button>
@@ -33,15 +53,15 @@
         <ul style="list-style-type: none" id="list"></ul>
       </div>
     </div> -->
-    <!-- EDITABLE DIV EXERCISE -->
-    <!-- <div class="container div">
+      <!-- EDITABLE DIV EXERCISE -->
+      <!-- <div class="container div">
       <h1 id="counter" class="counter counts">Click here to edit this!</h1>
       <button class="btn" style="display: none">Save</button>
     </div> -->
-    <!-- <div> -->
-    <!-- <h1>Enter your details, and we'll get back to you in no time!</h1> -->
-    <!-- <form id="form"> -->
-    <!-- <input type="text" placeholder="Your Name" id="inpUsername" /><br />
+      <!-- <div> -->
+      <!-- <h1>Enter your details, and we'll get back to you in no time!</h1> -->
+      <!-- <form id="form"> -->
+      <!-- <input type="text" placeholder="Your Name" id="inpUsername" /><br />
         <input type="text" placeholder="Your Email" id="inpEmail" />
         <br />
         <input
@@ -52,12 +72,24 @@
         <input type="text" placeholder="Your Pin Code" id="inpPin" /><br />
         <div id="errorMsg" class="invalid-feedback"></div>
         <button id="fetchBtn" type="submit">Submit</button> -->
-    <!-- ALARM CLOCK -->
-    <!-- <input type="time" name="" id="time" />
+      <!-- ALARM CLOCK -->
+      <!-- <input type="time" name="" id="time" />
         <button id="fetchBtn" type="submit">Set Alarm</button>
         <button id="snoozeBtn" style="display: none">Snooze</button> -->
-    <!-- </form> -->
-    <!-- </div> -->
+      <!-- </form> -->
+      <!-- </div> -->
+    </misc>
+    <!-- DRAG AND DROP -->
+    <!-- <div class="whiteBx" draggable>
+      <img class="img" src="https://source.unsplash.com/random/100x100" alt="" draggable />
+    </div>
+    <div class="whiteBx" draggable>
+      <img class="img" src="" alt="" draggable />
+    </div>
+    <div class="whiteBx" draggable>
+      <img class="img" src="" alt="" draggable />
+    </div>
+    </div> -->
     <!-- GENERAL SCRIPT -->
     <script async src="script.js"></script>
     <script

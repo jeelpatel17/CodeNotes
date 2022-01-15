@@ -490,7 +490,7 @@
 
 /* CALLBACK FUNCTIONS */
 // Assuming that this array comes from a remote database
-const students = [{ name: "Jeel", sub: "Science" }];
+// const students = [{ name: "Jeel", sub: "Science" }];
 
 // function enrollStudent(student, callback) {
 // //   setTimeout(function () {
@@ -647,8 +647,8 @@ const students = [{ name: "Jeel", sub: "Science" }];
 
 /* FETCH API - MODERN REPLACER OF XHR */
 
-let fetchBtn = document.getElementById("fetchBtn");
-let parent = document.getElementById("list");
+// let fetchBtn = document.getElementById("fetchBtn");
+// let parent = document.getElementById("list");
 
 // fetchBtn.addEventListener("click", function fetchData() {
 //   let url = "patel.txt";
@@ -1130,3 +1130,37 @@ let parent = document.getElementById("list");
 //     "primary"
 //   ).innerText = `${hours} : ${minutes} : ${seconds} ${amOrPm}`;
 // }
+
+/* DRAGGABLE DIVS */
+// let img = document.querySelector(".img");
+// let whiteBx = document.getElementsByClassName("whiteBx");
+
+// img.addEventListener("dragstart", (e) => {
+//   e.target.className += " holdOn";
+//   setTimeout(() => {
+//     e.target.className = "hide";
+//   }, 0);
+// });
+
+// img.addEventListener("dragend", (e) => {
+//   e.target.className = "img";
+//   e.target.className += " holdOn";
+// });
+
+// for (whiteBxi of whiteBx) {
+//   whiteBxi.addEventListener("dragover", (e) => {
+//     e.preventDefault();
+//     e.target.className += " toBe";
+//   });
+//   whiteBxi.addEventListener("dragenter", () => {
+//   });
+//   whiteBxi.addEventListener("dragleave", (e) => {
+//     e.target.className = "whiteBx";
+//   });
+//   whiteBxi.addEventListener("drop", (e) => {
+//     e.target.append(img);
+//   });
+// }
+
+/* LAST PROJECT - APPLE CALCULATOR */
+// IN AN ANOTHER SUB-FOLDER
