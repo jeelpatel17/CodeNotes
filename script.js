@@ -1087,3 +1087,46 @@ let parent = document.getElementById("list");
 //   console.log(`Translated: ${joke.contents.translated}`);
 // }
 // checkApi();
+
+/* DESTRUCTURING */
+// let a, b, c, d, e;
+// you can assign it like this
+// [a, b] = [56, 67];
+
+// or this; this way the first three will be assigned to a, b and c, and the rest will be stored in d as an array
+// [a, b, c, ...d] = [1, 2, 3, 4, 5, 6];
+// another similar example
+// const cars = ["mini", "mustang", "camaro", "tesla", "lincoln", "cadillac"];
+// [a, b, c, ...d] = cars;
+
+// This will work the same way as above, but instead of storing the rest values in an array, it'll store into an object
+// ({ a, b, c, ...d } = { a: 1, b: 2, c: 3, d: 4, e: 5 });
+
+/* DIGITAL CLOCK */
+// This is to prevent the 1 second delay after the page load
+// window.onload = updateClock();
+// setInterval(updateClock, 1000);
+
+// function updateClock() {
+//   let hours = new Date().getHours();
+//   let minutes = new Date().getMinutes();
+//   let seconds = new Date().getSeconds();
+//   // Add AM/PM according to the time
+//   let amOrPm = hours >= 12 ? "PM" : "AM";
+
+//   // FIRST WAY TO CONVERT 24 TO 12: If the time is not 12, than *remainder* it with 12
+//   //   if (hours != 12) {
+//   //     hours = hours % 12;
+//   //   }
+//   // SECOND WAY TO CONVERT 24 TO 12: If the time is more than 12, subtract it from 12; also, if it results 0, make it 12
+//   hours = hours > 12 ? hours - 12 : hours;
+//   hours = hours == 0 ? "12" : hours;
+
+//   // Adding a 0 before single digits
+//   hours = (hours < 10 ? "0" : "") + hours;
+//   minutes = (minutes < 10 ? "0" : "") + minutes;
+//   seconds = (seconds < 10 ? "0" : "") + seconds;
+//   document.getElementById(
+//     "primary"
+//   ).innerText = `${hours} : ${minutes} : ${seconds} ${amOrPm}`;
+// }
