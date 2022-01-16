@@ -60,7 +60,7 @@ button {
   color: #fff;
   border-radius: 50%;
   font-size: 40px;
-  padding: 13px;
+  padding: 12px;
   margin: 5px;
   height: 90px;
   width: 90px;
@@ -68,11 +68,18 @@ button {
 
 .rightMost {
   background-color: #ff9f0b;
+  color: #fff;
 }
 
 .topThree {
   background-color: #a5a5a5;
   color: #0d0d0d;
+}
+
+.wide {
+  padding-right: 165px;
+  padding-left: 27px;
+  border-radius: 70px;
 }
 
 .rest {
