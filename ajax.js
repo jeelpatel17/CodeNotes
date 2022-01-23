@@ -51,3 +51,10 @@ function buttonClickHandler(e) {
   // FOR GET METHOD
   xhr.send();
 }
+
+// MODERN FETCH API WITH ASYNC AWAIT
+// async function findYum() {
+//   const response = await fetch('https://foodish-api.herokuapp.com/api/images/dessert');
+//   const yum = await response.json();
+//   foodHolder += `<img src=${yum.image}>`;
+// }
