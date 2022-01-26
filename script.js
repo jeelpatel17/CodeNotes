@@ -1164,3 +1164,30 @@
 
 /* LAST PROJECT - APPLE CALCULATOR */
 // IN AN ANOTHER SUB-FOLDER
+
+/* MODULAR JS (MODULE SYSTEMS IN JS) */
+// 1. IMPORT/EXPORT MODULE SYSTEM
+
+// EXPORT MODULES (2 WAYS)
+// 1. function add(a, b) {
+//     return a + b;
+//    };
+
+// DEFAULT EXPORT
+//    export default add;
+
+// 2. export default function add(a, b) {
+//  return a + b;
+// };
+
+// IMPORT MODULES - AKA - DEFAULT IMPORT
+// import add from './math.js';
+
+// NAMED IMPORT
+// import {add, multiply} from './math.js';
+
+// RENAME THE IMPORT WITH 'as' (If its name is long from the origin, you can shorten it here, and vice-versa)
+// import add, { subtractNumbers as sub } from './math.js'; // You can now use 'sub' instead of 'substractNumbers'
+
+// CommonJS -- which requires the 'require' keyword
+// var models = require('./models');
