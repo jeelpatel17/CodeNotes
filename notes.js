@@ -1,27 +1,3 @@
-/* CONSOLE FUNCTIONS */
-// console.log(3 + 3); // likewise for every variable/operation
-// console.log([2, 3, 4]); // arrays
-// console.log({ jeel: "this", marks: 56 }); // objects
-// console.warn("This is a Warning!"); // to show a message in yellow color, denotes that it's a warning
-// console.clear(); // to clear the console
-
-// TO CHECK HOW LONG DOES YOUR CODE TAKE TO EXECUTE
-// console.time("Code executed in"); // the inner content should be the same in both .time() and timeEnd()
-// your code...
-// console.timeEnd("Code executed in");
-
-/* IF STATEMENT IN CONSOLE! */
-// console.assert(2 > 1, `2 is greater than 1`); // the second argument will only execute if the first one is FALSE!, here '2 > 1' is true, so it'll not print the string, but '1 > 2' condition will make the string print
-// console.error("an error!");
-// var varia = 34;
-// console.log(varia); // this'll be printed in blue color
-
-/* VARIABLE NOMENCLATURE in JS */
-// - can't start with numbers
-// - can start with $, _ or letter
-
-// - - you must initialize a constant variable when declaring
-
 /* ARRAYS */
 // - You can push an element to a const array
 // i.e. const arr1 = [1,2,3];
@@ -1191,3 +1167,58 @@
 
 // CommonJS -- which requires the 'require' keyword
 // var models = require('./models');
+
+// AJAX DETAILED NOTES
+/* AJAX  - asynchronous javascript */
+// let fetchBtn = document.getElementById("fetchBtn");
+// fetchBtn.addEventListener("click", buttonClickHandler);
+
+// function buttonClickHandler(e) {
+//   e.preventDefault();
+//   console.log("clicked!");
+//   // instantiate an xhr object, in which we'll store the function through which we can make HTTP requests
+//   const xhr = new XMLHttpRequest();
+//   // open the XHR object and specify what you want to do; also do enter the URL where you want to fetch data from
+//   // GET METHOD; 'true' here is for specifying if we want to perform an asynchronous request or not(to keep running the code flow side by side a process)
+//   xhr.open("GET", `/db.json`, true);
+//   // POST METHOD
+//   // xhr.open("POST", "http://dummy.restapiexample.com/api/v1/create", true);
+//   // xhr.getResponseHeader("Content-type", "application/json");
+
+//   // what to do on progress; like buffer circles(spinners) and lazy loading; [Note: This is optional, you can print it to use it as a placeholder, but not mandatory]
+//   xhr.onprogress = function () {
+//     console.log("progressing...");
+//   };
+//   // ReadyStateChange indicates the stages of processing, the codes that we get are below[Note: This is optional, you can print it to get live updates of the data fetching]:
+//   // 0	UNSENT	- Client has been created. open() not called yet.
+//   // 1	OPENED  -	open() has been called.
+//   // 2	HEADERS_RECEIVED - send() has been called, and headers and status are available.
+//   // 3	LOADING -	Downloading; responseText holds partial data.
+//   // 4	DONE	  - The operation is complete.
+//   xhr.onreadystatechange = function () {
+//     console.log(`Ready state is ${xhr.readyState}`);
+//   };
+//   // when response is ready
+//   xhr.onload = function (e) {
+//     e.preventDefault();
+//     // LET THE USER KNOW IF ANY ERROR IS OCCURED
+//     if (this.status === 200) {
+//       let data = JSON.parse(this.responseText);
+//       console.log(data);
+//       document.getElementById(
+//         "list"
+//       ).innerHTML += `<li><h5 class="card-title">${data.day}</h5>
+//       <h6 class="card-subtitle mb-2 text-muted"></h6></li>`;
+//     } else {
+//       console.error("Something went wrong!");
+//     }
+//   };
+
+//   // sending the request; every above function is useless without this func below!
+//   // FOR POST METHOD
+//   // let params = `{ name: "Jesdv", salary: "123", age: "20" }`;
+//   // xhr.send(params);
+
+//   // FOR GET METHOD
+//   xhr.send();
+// }
