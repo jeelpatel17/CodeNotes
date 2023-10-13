@@ -93,6 +93,8 @@
 // inherited.reverse(); // to reverse an array
 // console.log(inherited);
 // console.log(Array.isArray(inherited)); // this checks and returns boolean if the entered variable is an array or not
+// if you check typeof {} and typeof [] are both 'object', so how can we check if something is an array or not?
+// Array.isArray({}) - this will output 'false', and Array.isArray([]) - this will output TRUE
 
 /* TERNARY OPERATOR */
 // let me = 19;
@@ -965,11 +967,11 @@
 //   console.log(val.next());
 // }
 
-/* PROJECT 5 - RANDOM PERSON GENERATOR */
+/* ITERATE AN OBJECT'S VALUES WITHOUT FOR-IN */
 
 // TO ITERATE AN OBJECT
 // obj = {
-//   Hello: "Jeel",
+//   Hello: "Vijay",
 //   Name: "Dinanath",
 //   Umar: 70,
 // };
@@ -1046,7 +1048,7 @@
 // generateJoke();
 
 /* MY MINI PROJECT - YODA TRANSLATOR */
-// const sentence = "You can enter a sentence in here!";
+// const sentence = "My name is Jeel, and I am a Frontend Developer!";
 // const ogArray = sentence.replace(" ", "%20");
 
 // async function checkApi() {
@@ -1138,9 +1140,6 @@
 //   });
 // }
 
-/* LAST PROJECT - APPLE CALCULATOR */
-// IN AN ANOTHER SUB-FOLDER
-
 /* MODULAR JS (MODULE SYSTEMS IN JS) */
 // 1. IMPORT/EXPORT MODULE SYSTEM
 
@@ -1222,3 +1221,55 @@
 //   // FOR GET METHOD
 //   xhr.send();
 // }
+
+/* SHERYIANS NOTES - ADVANCED JS */
+/* TRUTHY AND FALSY VALUES */
+// As we know, the values other than 0 in an if-else condition is true, there are more values than zero which are considered as FALSE. Those are called FALSY values: [0, false, undefined, null, NaN, document.all] these all are considered FALSE.
+// EVERYTHING ELSE in JS is considered TRUE, even negative number values.
+
+/* IIFE - Immediately Invoked Function Expression */
+// IIFE is the functions that you get for instant use, like gsap. for using gsap libray, jQuery.something for using jquery
+// IIFE is a private function, i.e.
+// (function(){
+//     var a=1;
+// })()
+// The above code is an IIFE; here, a can't be accessed from the browser(console)
+// IIFE hai function ko turant chalane ki kala, iss tarike se ki hum log koi private variable bana paaye
+// var ans = (function(){
+//     var a=12;
+// return {
+//     getter: function(){
+//         console.log(a);
+//     },
+//     setter: function(val){
+//         a = val;
+//     }
+// }
+// })()
+// Here, the private variable can only be changed from the setter function and cannot be accessed from anywhere else.
+
+/* CALL, APPLY, BIND */
+/* CALL */
+// If we have one function and one object, and the properties of both are different, and if we want the object to point towards the function whose 'this' is the (currently) the window object, in that case we use the call() method
+// example:
+// function abcd(){
+//     console.log(this);
+// }
+
+// var obj = {age: 22}
+
+// abcd.call(obj);
+// This way, we assign the members and methods of the obj object to be stored inside 'abcd' function's properties.
+// If we want to also pass some parameters to the 'abcd' function than we can do it like below:
+// abcd.call(obj, 1, 2, 3);
+
+/* APPLY */
+// The only tiny difference between APPLY & CALL is that we pass only two arguments in the APPLY method instead of the traditional method. We pass first the object that we want to be assigned to the function and all the arguments in an array, that's it.
+// example:
+// abcd.apply(obj, [1,2,3]); This is the only difference!
+
+/* BIND */
+// The function and the object that we want it to be pointed towards the function would be pointed, but won't run that particular function immediately, it'll keep those two binded but not run when the code is executed.
+// In the above two, it'll run the function once the code is executed, but bind() doesn't run the function.
+// The binding of both will be stored in a variable for future use:
+// var binded_fnc = abcd.bind(obj);
