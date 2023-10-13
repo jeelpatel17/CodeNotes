@@ -1273,3 +1273,8 @@
 // In the above two, it'll run the function once the code is executed, but bind() doesn't run the function.
 // The binding of both will be stored in a variable for future use:
 // var binded_fnc = abcd.bind(obj);
+
+/* PURE FUNCTIONS */
+// Pure functions are nothing but the function who follow the given two rules:
+// 1. It should always return same output for same input
+// 2. It will never change/update the value of a global variable.
