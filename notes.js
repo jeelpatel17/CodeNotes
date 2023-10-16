@@ -1278,3 +1278,12 @@
 // Pure functions are nothing but the function who follow the given two rules:
 // 1. It should always return same output for same input
 // 2. It will never change/update the value of a global variable.
+
+/* CONCURRENCY */
+// The event when sync and async code both are running simultaneously is called Concurrency.
+
+function hi() {
+  var i = 1;
+}
+
+console.log(i);
